@@ -2,10 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { ParentComponent } from './parent.component';
-import { ChildComponent } from './child/child.component';
 import { CustomModule } from './custom/custom.module';
+import { FormsModule } from '@angular/forms';
+import { HighlightDirective } from './highlight.directive';
 
 // @NgModule({
 //   declarations: [
@@ -21,8 +20,8 @@ import { CustomModule } from './custom/custom.module';
 // export class AppModule { }
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, CustomModule],
+  declarations: [AppComponent, HighlightDirective],
+  imports: [BrowserModule, CustomModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
