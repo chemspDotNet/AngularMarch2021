@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
+
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css']
 })
-export class ChildComponent implements OnInit {
+export class ChildComponent implements OnInit, OnChanges, OnDestroy {
 
   message =
     [
@@ -18,9 +19,28 @@ export class ChildComponent implements OnInit {
   inputVal = '';
   inputVal2 = 'fsdfsdfsdfs';
 
+  @Input()
+  couterInChild = 0;
+
+  countertoPasstoParent = 0;
+
+  @Output() counterchanged: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() { }
 
+  ngOnChanges(changes: SimpleChanges) {
+
+  }
+
+
   ngOnInit() {
+    // call backend
+
+  }
+
+  ngOnDestroy() {
+
+    // cleanupwork
   }
 
   getMessage() {
@@ -34,6 +54,21 @@ export class ChildComponent implements OnInit {
   setValue(val) {
 
     this.inputVal = val;
+  }
+
+
+  increment() {
+    this.countertoPasstoParent++;
+    this.counterchanged.emit(this.countertoPasstoParent);
+
+  }
+
+
+
+  decrement() {
+    this.countertoPasstoParent--;
+
+    this.counterchanged.emit(this.countertoPasstoParent);
   }
 
 }

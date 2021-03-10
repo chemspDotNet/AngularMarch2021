@@ -1,4 +1,31 @@
 <div style="border: 2px solid green; width: 100%; padding: 5px">
     <h3>This is Parent Component</h3>
-    <app-child></app-child>
+    <h4>Counter in Parent : {{CounterInParent}}</h4>
+    <button class="btn btn-primary btn-sm" (click)="incrementCounter()"> Increment Counter</button>
+
+
+    <input #myinput type="text" value="myviewchildexample">
+
+
+    <h4>Counter from Child : {{CounterFromChild}}</h4>
+    <button type="button" class="btn btn-sm btn-success" (click)="toggle()"> Toggle Child component</button>
+
+    <div *ngIf="showdata">
+
+        <app-child #mychild [couterInChild]="CounterInParent" (counterchanged)="myEventHandler($event)">
+
+
+            <p>
+                sdfsdfsafasd
+                asdfasdas
+                asddsfsfstyetso
+            </p>
+
+
+        </app-child>
+
+        {{mychild.couterInChild}}
+
+    </div>
+
 </div>

@@ -1,7 +1,16 @@
 <div style="border: 2px solid blue;  width: 100%; padding: 5px">
+    <ng-content></ng-content>
     <p>child works!</p>
 
     <h4>Hello {{message.name}}</h4>
+
+    <h3>Counter in Child : {{couterInChild}}</h3>
+
+    <h3>Counter in child to be pass to Parent : {{countertoPasstoParent}}</h3>
+    <button class="btn btn-warning" (click)="increment()"> Increment</button>
+    <hr>
+    <button class="btn btn-warning" (click)="decrement()"> Decrement</button>
+
 
     {{flag}}
 
@@ -34,5 +43,6 @@
         </tr>
 
     </table>
+
 
 </div>
