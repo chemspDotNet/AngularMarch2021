@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { CustomModule } from './custom/custom.module';
 import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from './highlight.directive';
+import { DataService } from './services/data.service';
+import { MytestService } from './services/mytest.service';
+import { HttpClientModule } from '@angular/common/http';
 
 // @NgModule({
 //   declarations: [
@@ -21,8 +24,8 @@ import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [AppComponent, HighlightDirective],
-  imports: [BrowserModule, CustomModule, FormsModule],
-  providers: [],
+  imports: [BrowserModule, CustomModule, FormsModule, HttpClientModule],
+  providers: [DataService, MytestService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
