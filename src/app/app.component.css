@@ -1,0 +1,15 @@
+li {
+     display: inline-block;
+      padding-left: 15px;
+      padding-right: 15px; 
+      margin: 10px;
+      border: 1px solid greenyellow;
+      border-radius: 15px;
+      cursor: pointer;
+      outline: none;
+      
+    }
+    li:hover {
+        background-color: greenyellow;
+        color: grey;
+    }

@@ -1,6 +1,7 @@
 // import { Component } from '@angular/core';
 
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { DataService } from "./services/data.service";
 import { MytestService } from "./services/mytest.service";
@@ -17,18 +18,23 @@ import { MytestService } from "./services/mytest.service";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: [],
+  styleUrls: ['./app.component.css'],
   providers: []
 })
 export class AppComponent implements OnInit {
 
+  task = 'task';
   dataItems = [];
   dataItems1;
   testData;
 
   mycustomObs: Observable<any>;
   counter = 0;
-  constructor(private dataService: DataService, private mytest: MytestService) { }
+
+  customers = ['John', 'Mary', 'Bob'];
+  custName = 'Sam';
+
+  constructor(private dataService: DataService, private mytest: MytestService, private router: Router) { }
 
   ngOnInit() {
 
@@ -40,11 +46,11 @@ export class AppComponent implements OnInit {
           this.counter++;
           obsever.next(this.counter);
 
-          if (this.counter == 6) {
+          if (this.counter == 3) {
             obsever.complete();
           }
 
-          if (this.counter == 4) {
+          if (this.counter == 2) {
             obsever.error('Something went wrong')
           }
 
@@ -93,4 +99,12 @@ export class AppComponent implements OnInit {
 
     });
   }
+
+
+  navigate() {
+    this.router.navigate(['taskdetail', 100, 200], { queryParams: { 'city': 'London' } });
+  }
+
+
+
 }

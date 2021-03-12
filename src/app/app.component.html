@@ -1,5 +1,26 @@
 <div class="container">
+
+  <div style="border-bottom: 2px solid black ; margin-bottom: 10px;">
+    <ul>
+      <li [queryParams]="{'name':'Paul', 'lastname': 'Smith'}" [routerLink]="['parent']">Parent</li>
+
+      <li [routerLink]="'task'">Task</li>
+
+      <li [routerLink]="['taskdetail', 10, 233]">Task Details</li>
+      <li [routerLink]="'customer'">Customer</li>
+      <li [routerLink]="'customer/order'">Order</li>
+    </ul>
+  </div>
+  <button (click)="navigate()"> Navigate to Task</button>
+
   <h1 appHighlight>Hello Class</h1>
+
+
+  <div *ngFor="let customer of customers">
+    {{customer|greet}}
+
+  </div>
+
   {{dataItems1|json}}
 
   {{dataItems|json}}
@@ -8,7 +29,8 @@
 
   <div style="border: 1px solid black;  padding: 5px; width: 100%; padding: 5px;">
 
-    <app-parent></app-parent>
+
+    <router-outlet> </router-outlet>
 
 
 
