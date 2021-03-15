@@ -1,8 +1,17 @@
 <div class="container">
+  <div>
+    <button class="btn btn-success" (click)="doLogin()">LogIn</button> &nbsp;
 
-  <div style="border-bottom: 2px solid black ; margin-bottom: 10px;">
+    <button class="btn btn-success" (click)="doLogOut()">LogOut</button>
+  </div>
+
+  <div id="menu">
     <ul>
       <li [queryParams]="{'name':'Paul', 'lastname': 'Smith'}" [routerLink]="['parent']">Parent</li>
+
+      <li [routerLink]="'reactive'">Reactive Form</li>
+
+      <li [routerLink]="'template-driven'">Template-Driven Form</li>
 
       <li [routerLink]="'task'">Task</li>
 

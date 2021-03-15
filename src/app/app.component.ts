@@ -3,6 +3,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
+import { AuthService } from "./services/auth.service";
 import { DataService } from "./services/data.service";
 import { MytestService } from "./services/mytest.service";
 
@@ -34,7 +35,10 @@ export class AppComponent implements OnInit {
   customers = ['John', 'Mary', 'Bob'];
   custName = 'Sam';
 
-  constructor(private dataService: DataService, private mytest: MytestService, private router: Router) { }
+  constructor(private dataService: DataService,
+    private mytest: MytestService, private router: Router,
+    private authservice: AuthService
+  ) { }
 
   ngOnInit() {
 
@@ -107,4 +111,11 @@ export class AppComponent implements OnInit {
 
 
 
+  doLogin() {
+    this.authservice.login();
+  }
+
+  doLogOut() {
+    this.authservice.logout();
+  }
 }

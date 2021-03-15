@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-md-6 offset-3">
+    <form [formGroup]="mySignUpForm" (ngSubmit)="handleSubmit()">
+
+      <div class="form-group">
+        <label>
+          First Name
+        </label>
+        <input formControlName="fname" class="form-control" type="text">
+        <div *ngIf="!mySignUpForm.get('fname').valid &&mySignUpForm.get('fname').touched "
+          class="form-text myalertClass">
+          *Required
+        </div>
+      </div>
+      <div class="form-group ">
+        <label>
+          Last Name
+        </label>
+        <input formControlName="lastname" class="form-control" type="text">
+        <div *ngIf="!mySignUpForm.get('lastname').valid &&mySignUpForm.get('lastname').touched "
+          class="form-text myalertClass">
+          *Required
+        </div>
+      </div>
+      <div formGroupName="address">
+        <div class="form-group">
+          <label>
+            Street
+          </label>
+          <input formControlName="street" class="form-control" type="text">
+          <div *ngIf="!mySignUpForm.get('address.street').valid   && mySignUpForm.get('address.street').touched">
+            <div *ngIf=" mySignUpForm.get('address.street').errors['required'] " class="form-text myalertClass">
+              *Required
+            </div>
+            <div
+              *ngIf="mySignUpForm.get('address.street').errors['notvaliditem'] && mySignUpForm.get('address.street').dirty "
+              class="form-text myalertClass">
+              *Customer Validator Minlength
+            </div>
+          </div>
+        </div>
+        <div class="form-group ">
+          <label>
+            City
+          </label>
+          <input formControlName="city" class="form-control" type="text">
+          <div *ngIf="!mySignUpForm.get('address.city').valid   && mySignUpForm.get('address.city').touched">
+            <div *ngIf=" mySignUpForm.get('address.city').errors?.required " class="form-text myalertClass">
+              *Required
+            </div>
+            <div *ngIf="mySignUpForm.get('address.city').errors?.minlength" class="form-text myalertClass">
+              *minlength
+            </div>
+          </div>
+
+
+        </div>
+
+
+      </div>
+      <h4>Technologies</h4>
+
+      <button class="btn btn-sm btn-success" type="buttton" (click)="addTechnologies()">Add Technologies</button>
+      <hr>
+      <div formArrayName="technologies">
+        <div class="form-group" *ngFor="let item of getTechnologies().controls;let i=index">
+          <input class="form-control" type="text" [formControlName]="i">
+          <span *ngIf="!item.valid && item.touched" class="help-block myalertClass">*Requires</span>
+
+        </div>
+      </div>
+
+
+      <button class="btn btn-success" type="submit">Save</button>
+      &nbsp;
+      <button class="btn btn-danger" type="button">Cancel</button>
+    </form>
+    <hr>
+
+
+  </div>
+
+
+</div>
+
+
+<div>
+  <form [formGroup]="mySignUpForm">
+
+  </form>
+</div>

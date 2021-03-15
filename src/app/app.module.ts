@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CustomModule } from './custom/custom.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HighlightDirective } from './highlight.directive';
 import { DataService } from './services/data.service';
 import { MytestService } from './services/mytest.service';
@@ -12,9 +12,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { TaskComponent } from './task/task.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { GreetPipe } from './greet.pipe';
-import { RouterModule, Routes } from '@angular/router';
-import { ParentComponent } from './parent/parent.component';
 import { TaskdetailsComponent } from './task/taskdetails/taskdetails.component';
+import { MyreactiveComponent } from './myreactive/myreactive.component';
+import { MytemplatedrivenComponent } from './mytemplatedriven/mytemplatedriven.component';
+import { AuthService } from './services/auth.service';
+import { AuthGaurdSerivce } from './services/auth-gaurd.service';
 
 // @NgModule({
 //   declarations: [
@@ -38,16 +40,26 @@ import { TaskdetailsComponent } from './task/taskdetails/taskdetails.component';
 // ]
 
 @NgModule({
-  declarations: [AppComponent, HighlightDirective, TaskComponent, NotfoundComponent, GreetPipe, TaskdetailsComponent],
+  declarations: [
+    AppComponent,
+    HighlightDirective,
+    TaskComponent,
+    NotfoundComponent,
+    GreetPipe,
+    TaskdetailsComponent,
+    MyreactiveComponent,
+    MytemplatedrivenComponent],
   imports: [
     BrowserModule,
     CustomModule,
+
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     //  RouterModule.forRoot(appRoutes)
     AppRoutingModule
   ],
-  providers: [DataService, MytestService],
+  providers: [DataService, MytestService, AuthService, AuthGaurdSerivce],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

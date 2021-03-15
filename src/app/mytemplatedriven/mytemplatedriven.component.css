@@ -1,0 +1,7 @@
+input.ng-touched.ng-invalid{border:1px solid red;}
+input.ng-touched.ng-valid{border:1px solid forestgreen;}
+
+
+.formclass {
+    border: 1px solid black;margin-left: 30%;margin-right : 30%;padding: 5%;
+}

@@ -1,4 +1,4 @@
-li {
+#menu li {
      display: inline-block;
       padding-left: 15px;
       padding-right: 15px; 
@@ -9,7 +9,15 @@ li {
       outline: none;
       
     }
-    li:hover {
+    #menu li:hover {
         background-color: greenyellow;
         color: grey;
+    }
+
+    #menu {
+      border-bottom: 2px solid black ;
+      margin-bottom: 10px;
+      top:0;
+      position: sticky;
+      background-color: white;
     }
