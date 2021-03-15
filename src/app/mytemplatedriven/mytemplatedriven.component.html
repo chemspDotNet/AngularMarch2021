@@ -25,7 +25,7 @@
 
 <div class="formclass">
   <h4>Login</h4>
-  <!-- <form #sampleform="ngForm" (ngSubmit)="sumbitMyForm(sampleform)">
+  <form #sampleform="ngForm" (ngSubmit)="sumbitMyForm(sampleform)">
 
     <label>First Name</label>
     <input class="form-control" type="text" #fname="ngModel" [(ngModel)]="user.firstname" name="fname" required>
@@ -41,13 +41,13 @@
     <button class="btn btn-primary" [disabled]="!sampleform.valid" type="submit"> Submit</button> &nbsp; &nbsp;
     <button class="btn btn-danger" type="button" (click)="CancelSubmit()"> Cancel</button>
 
-  </form> -->
+  </form>
 
 
 
 
 
-  <form #myFirstForm="ngForm" (ngSubmit)="submitForm(myFirstForm)">
+  <!-- <form #myFirstForm="ngForm" (ngSubmit)="submitForm(myFirstForm)">
     <div class="form-group">
       <label>Username</label>
       <input #username="ngModel" ngModel type="text" name="username" required>
@@ -64,4 +64,4 @@
 
   </form>
   {{myFirstForm.value | json}}
-</div>
+</div> -->

@@ -16,7 +16,7 @@ const appRoutes: Routes = [
   {
     path: 'task', children: [
       { path: '', component: TaskComponent },
-      { path: 'tasldetails/:id:id2', component: TaskdetailsComponent }
+      { path: 'taskdetail/:id/:id2', component: TaskdetailsComponent }
     ]
   },
   { path: 'customer', loadChildren: './lazy/lazy.module#LazyModule' },
